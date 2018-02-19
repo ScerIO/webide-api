@@ -15,13 +15,7 @@ import { schema } from './Schema'
 }
 
 express()
-  /*
-  .use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    next();
-  })*/
+  .disable('x-powered-by')
   .use('/api', expressGraphql({ schema }))
   .use('/debug', expressGraphql({
     schema,

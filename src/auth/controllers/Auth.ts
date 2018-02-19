@@ -39,9 +39,7 @@ export default class {
         audience: GOOGLE_ID || ''
       })
     } catch (error) {
-      // Google token lyfecicle end
-      console.error(error)
-      return null
+      // Google token lyfecicle end or token broken
     } finally {
       if (!account) return null
 
