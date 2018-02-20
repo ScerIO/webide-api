@@ -1,6 +1,10 @@
-node_modules/*
+node_modules/
 build/
+
+# All eviroment
 *.bat
 .env
-
 *.log
+
+# Important! Database data!
+data/

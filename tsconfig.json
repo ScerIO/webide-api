@@ -1,32 +1,26 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "target": "es2017",
-        "lib": [
-            "es5",
-            "es6",
-            "es2015.core",
-            "es2015.collection",
-            "es2015.generator",
-            "es2015.iterable",
-            "es2015.promise",
-            "es2015.proxy",
-            "es2015.reflect",
-            "es2015.symbol",
-            "es2015.symbol.wellknown",
-            "esnext.asynciterable"
-        ],
-        "removeComments": true,
-        "noImplicitAny": true,
-        "strictNullChecks": true,
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "outDir": "build/"
-    },
-    "include": [
-        "src/**/*"
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es2017",
+    "lib": [
+      "es5",
+      "es6",
+      "esnext"
     ],
-    "exclude": [
-        "node_modules/**/*"
-    ]
+    "removeComments": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictNullChecks": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "outDir": "./build/",
+    "baseUrl": "./",
+    "paths": {
+      "*": [
+        "./src/*"
+      ]
+    }
+  }
 }

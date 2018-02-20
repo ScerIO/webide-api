@@ -1,46 +1,13 @@
 {
-	"rules": {
-		"no-duplicate-variable": true,
-		"no-unused-variable": true,
-		"curly": false,
-		"class-name": true,
-		"semicolon": [true, "never"],
-		"triple-equals": false,
-		"no-reference": true,
-		"only-arrow-functions": false,
-		"await-promise": true,
-		"no-unused-expression": false,
-		"comment-format": [
-			true,
-			"check-space"
-		],
-		"array-type": [
-			true,
-			"array"
-		],
-		"no-duplicate-imports": true,
-		"member-access": [
-			true
-		],
-		"typedef": [
-			true,
-			"call-signature",
-			"parameter"
-		],
-		"function-name": [
-			true,
-			{
-				"function-regex": "/^[a-z$][wd]+$/",
-				"method-regex": "/^[a-z$][wd]+$/",
-				"private-method-regex": "/^[a-z$][wd]+$/",
-				"protected-method-regex": "/^[a-z$][wd]+$/",
-				"static-method-regex": "/^[a-z$][wd]+$/"
-			}
-		],
-		"variable-name": [
-			true,
-			"check-format"
-		],
-		"no-this-assignment": true
-	}
+  "extends": "tslint:recommended",
+  "rules": {
+    "linebreak-style": [true, "LF"],
+    "quotemark": [true, "single", "avoid-escape", "avoid-template"],
+    "no-console": false,
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "curly": [true, "ignore-same-line"],
+    "semicolon": [true, "never"],
+    "no-var-requires": false
+  }
 }

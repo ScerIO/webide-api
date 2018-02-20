@@ -27,5 +27,7 @@ services:
   ide-api-mongodb:
     image: mongo
     container_name: ide-api-mongodb
-    ports:
-      - '27017:27017'
+    environment:
+      - MONGO_DATA_DIR=/data/db
+    volumes:
+      - ./data:/data/db

@@ -1,10 +1,11 @@
 {
   "name": "ide-api",
   "version": "1.1.0",
+  "main": "build/Server.js",
   "scripts": {
     "build": "tsc -p . & PAUSE",
     "build:watch": "tsc -w -p . & PAUSE",
-    "start": "node -r dotenv/config build/server.js"
+    "start": "node -r dotenv/config -r ./build/bootstrap.js build/server.js"
   },
   "dependencies": {
     "@types/dotenv": "^4.0.2",
@@ -12,26 +13,24 @@
     "@types/express-graphql": "^0.0.36",
     "@types/graphql": "^0.12.4",
     "@types/mongodb": "^3.0.5",
-    "@types/node-schedule": "^1.2.0",
     "@types/twilio": "0.0.9",
     "@types/winston": "^2.3.8",
-    "cliffy": "^1.0.7",
+    "cliffy": "^1.0.8",
     "dotenv": "^5.0.0",
     "express": "^4.16.2",
-    "express-graphql": "^0.6.11",
+    "express-graphql": "^0.6.12",
     "googleapis": "^26.0.1",
     "graphql": "0.11.7",
     "graphql-schema-decorator": "^1.0.0-alpha9",
-    "gulp-cli": "^2.0.1",
     "mongodb": "^3.0.2",
     "mongoose": "4.13.11",
-    "node-schedule": "^1.2.5",
-    "reflect-metadata": "^0.1.10",
-    "twilio": "^3.8.1",
+    "tsconfig-paths": "^3.1.1",
     "typegoose": "^3.5.2",
     "typescript": "^2.7.2",
     "winston": "^2.4.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "tslint": "^5.9.1"
+  },
   "license": "ISC"
 }
