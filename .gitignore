@@ -6,8 +6,6 @@ build/
 .env
 *.log
 
-# Important! Database data!
+# Important! User data!
 data/
-
-# Upload data
 upload/

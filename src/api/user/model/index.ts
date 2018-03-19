@@ -6,7 +6,7 @@ import {
 } from 'typegoose'
 import token from 'utils/token'
 import { Role } from 'api/user/Role'
-import IUser from 'api/user/interface'
+import IUser from 'site-api/user'
 
 /**
  * User model

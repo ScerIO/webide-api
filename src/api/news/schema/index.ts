@@ -2,7 +2,7 @@ import {
   ObjectType,
   Field,
 } from 'graphql-schema-decorator'
-import INews from 'api/news/interface'
+import INews from 'site-api/news'
 import Schema from 'api/base/schema'
 import {
   NEWS_IMAGE_URL,

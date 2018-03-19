@@ -5,8 +5,7 @@
   "scripts": {
     "build": "tsc -p . & PAUSE",
     "build:watch": "tsc -w -p . & PAUSE",
-    "start": "node -r ./build/Bootstrap.js build/Server.js",
-    "dts-gen": "dts-generator --name 'api' --project ./ --out api.d.ts"
+    "start": "node -r ./build/Bootstrap.js build/Server.js"
   },
   "dependencies": {
     "@types/cors": "^2.8.3",
@@ -37,5 +36,8 @@
   "devDependencies": {
     "tslint": "^5.9.1"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "resolutions": {
+    "@types/mongoose": "5.0.7"
+  }
 }

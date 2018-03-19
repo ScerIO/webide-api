@@ -4,7 +4,7 @@ import {
   Arg,
 } from 'graphql-schema-decorator'
 import AuthController from 'api/auth/controller'
-import IUser from 'api/user/interface'
+import IUser from 'site-api/user'
 import User from 'api/user/schema'
 import {
   AUTH_GOOGLE_SIGN,

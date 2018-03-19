@@ -4,7 +4,7 @@ import {
   Arg,
 } from 'graphql-schema-decorator/lib'
 import User from 'api/user/schema'
-import IUser from 'api/user/interface'
+import IUser from 'site-api/user'
 import NewsQuery from 'api/news/query'
 import {
   SCHEMA_USER,

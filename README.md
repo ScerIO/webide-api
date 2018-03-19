@@ -29,43 +29,8 @@ LOGGER_PATH_ERRORS='./errors.log'
 
 ## TODO
 
-### Api list
+### [Auth](src/api/auth/README.md)
 
-- [x] Auth
-- [x] User
-- [ ] News
+### [User](src/api/user/README.md)
 
-### Auth
-
-#### Sign In
-
-- [x] Google
-- [x] Token
-- [ ] Login & password 
-
-#### Sign Up
-
-- [x] Google
-- [ ] Login & password
-
-#### Restore
-
-- [ ] Restore password by email
-
-### User
-
-- [x] Base implementation
-- [ ] Edit first name
-- [ ] Edit last name
-- [ ] Edit picture (Avatar)
-- [ ] Change password 
-
-### News
-
-- [ ] Base implementation
-- [ ] All posts
-- [ ] Pagination
-- [ ] Detail data
-- [ ] Make post
-- [ ] Edit post
-- [ ] Remove post
+### [News](src/api/news/README.md)

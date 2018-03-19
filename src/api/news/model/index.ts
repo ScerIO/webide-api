@@ -5,7 +5,7 @@ import {
   InstanceType,
   plugin,
 } from 'typegoose'
-import INews from 'api/news/interface'
+import INews from 'site-api/news'
 import * as paginate from 'mongoose-paginate'
 import { PaginateOptions } from 'mongoose'
 

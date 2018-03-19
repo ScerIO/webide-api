@@ -4,7 +4,7 @@ import {
   Root,
 } from 'graphql-schema-decorator'
 import { Role } from 'api/user/role'
-import IUser from 'api/user/interface'
+import IUser from 'site-api/user'
 import Schema from 'api/base/schema'
 import {
   USER,
