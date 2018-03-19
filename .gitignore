@@ -8,3 +8,6 @@ build/
 
 # Important! Database data!
 data/
+
+# Upload data
+upload/

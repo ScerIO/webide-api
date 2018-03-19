@@ -3,16 +3,29 @@ import {
   Field,
   Arg,
 } from 'graphql-schema-decorator/lib'
-import User from 'user/schema'
-import IUser from 'user/interface'
+import User from 'api/user/schema'
+import IUser from 'api/user/interface'
+import NewsQuery from 'api/news/query'
+import {
+  SCHEMA_USER,
+  SCHEMA_NEWS,
+} from 'schema/description'
 
 @ObjectType()
 export default class RootQuery {
   @Field({
     type: User,
-    description: 'Операции с пользователем',
+    description: SCHEMA_USER,
   })
-  user(@Arg({ name: 'token', nonNull: true }) token: string): Promise<IUser | null> {
+  public user(@Arg({ name: 'token', nonNull: true }) token: string): Promise<IUser | null> {
+
     return new Promise(() => ({ token }))
+  }
+  @Field({
+    type: NewsQuery,
+    description: SCHEMA_NEWS,
+  })
+  public news(): number {
+    return 0
   }
 }

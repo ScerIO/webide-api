@@ -11,10 +11,11 @@ import RootMutation from './mutation'
 @Schema()
 export class SchemaType {
   @Query()
-  query: RootQuery
+  public query: RootQuery
 
   @Mutation()
-  mutation: RootMutation
+  public mutation: RootMutation
+
 }
 
 /**

@@ -11,7 +11,7 @@ services:
     working_dir: /home/node/app
     command: npm start
     depends_on:
-        - ide-api-mongodb
+      - ide-api-mongodb
   ide-api-nginx:
     image: nginx
     container_name: ide-api-nginx
@@ -23,7 +23,7 @@ services:
       - './nginx.conf:/etc/nginx/conf.d/ide-api.template'
     command: /bin/bash -c "envsubst < /etc/nginx/conf.d/ide-api.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
     depends_on:
-        - ide-api-node
+      - ide-api-node
   ide-api-mongodb:
     image: mongo
     container_name: ide-api-mongodb

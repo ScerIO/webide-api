@@ -13,11 +13,9 @@ const dataBase = {
       DATABASE_PORT: PORT,
       DATABASE_NAME: NAME,
     } = process.env
-
     {
       (mongoose as any).Promise = global.Promise
     }
-
     mongoose.connect(`mongodb://${HOST}:${PORT}/${NAME}`, { useMongoClient: true, promiseLibrary: global.Promise })
       .catch((error) => Log.error('Connect to db: ', error))
     this._instance!! = mongoose

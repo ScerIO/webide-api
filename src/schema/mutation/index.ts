@@ -3,28 +3,43 @@ import {
   Field,
   Arg,
 } from 'graphql-schema-decorator/lib'
-import { AuthMutation } from 'auth/mutation'
-import { UserMutation } from 'user/mutation'
+import AuthMutation from 'api/auth/mutation'
+import UserMutation from 'api/user/mutation'
+import NewsMutation from 'api/news/mutation'
 
-import { User } from 'user/model'
+import { UserModel } from 'api/user/model'
+import {
+  SCHEMA_AUTH,
+  SCHEMA_USER,
+  SCHEMA_NEWS,
+} from 'schema/description'
 
 @ObjectType()
 export default class RootMutation {
   @Field({
     type: AuthMutation,
-    description: 'Операции с авторизацией',
+    description: SCHEMA_AUTH,
   })
-  auth(): number {
+  public auth(): number {
     return 0
   }
 
   @Field({
     type: UserMutation,
-    description: 'Операции с пользователем',
+    description: SCHEMA_USER,
   })
   // TODO: Remove string return type
-  async user(@Arg({ name: 'token', nonNull: true }) token: string): Promise<User | null | string> {
+  public async user(@Arg({ name: 'token', nonNull: true }) token: string): Promise<UserModel | null | string> {
+
     // return await AuthController.tokenAuth(token)
     return await token
+  }
+
+  @Field({
+    type: NewsMutation,
+    description: SCHEMA_NEWS,
+  })
+  public news(): number {
+    return 0
   }
 }
