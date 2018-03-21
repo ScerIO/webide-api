@@ -3,7 +3,7 @@
 ### User
 
 - [x] Base implementation
-- [ ] Edit first name
-- [ ] Edit last name
-- [ ] Edit picture (Avatar)
+- [x] Edit first name
+- [x] Edit last name
+- [x] Edit picture (Avatar)
 - [ ] Change password 

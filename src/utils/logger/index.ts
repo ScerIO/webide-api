@@ -36,7 +36,5 @@ const loggerUtil = {
 
 /**
  * Creat Logger (if it exist) and return
- * *
- * @return {LoggerInstance} - Logger instance
  */
 export default (() => loggerUtil.instance)()

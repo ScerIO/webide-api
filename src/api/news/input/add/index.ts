@@ -1,13 +1,14 @@
 import {
-  InputObjectType,
-  Field,
-} from 'graphql-schema-decorator'
-import {
-  NEWS_IMAGE_URL,
-  NEWS_TITLE,
-  NEWS_DESCRIPTION,
   NEWS_CONTENT,
+  NEWS_DESCRIPTION,
+  NEWS_IMAGE_URL,
+  NEWS_SHARE_VK,
+  NEWS_TITLE,
 } from 'api/news/description'
+import {
+  Field,
+  InputObjectType,
+} from 'graphql-schema-decorator'
 
 @InputObjectType()
 export default class AddNewsInput {
@@ -34,4 +35,9 @@ export default class AddNewsInput {
     description: NEWS_CONTENT,
   })
   public content: string
+
+  @Field({
+    description: NEWS_SHARE_VK,
+  })
+  public shareVK: boolean
 }

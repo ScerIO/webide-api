@@ -22,6 +22,12 @@ DATABASE_NAME='ide'
 # Logger
 LOGGER_PATH_COMBINED='./runtime.log'
 LOGGER_PATH_ERRORS='./errors.log'
+
+# VK
+VK_APP_ID= VK Aplication id
+VK_APP_SECRET= VK Aplication secret key
+VK_TOKEN= VK user token
+VK_GROUP_ID= VK group id (For example: -134802759)
 ``` 
 2. Install dependencies: `npm i` or `yarn install`
 3. Build: `npm run build` or `yarn run build` 

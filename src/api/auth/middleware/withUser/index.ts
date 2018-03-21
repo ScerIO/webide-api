@@ -1,19 +1,27 @@
+import AuthController from 'api/auth/controller'
+import ApiError from 'error'
 import {
   NextFunction,
-  Response,
   Request,
+  Response,
 } from 'express'
-import AuthController from 'api/auth/controller'
 
 const authController = new AuthController()
 
+/**
+ * Express middleware for check user privilege
+ * *
+ * @param req
+ * @param res
+ * @param next
+ */
 export async function withUser(req: Request, res: Response, next: NextFunction) {
   try {
-  const token = req.header('Auth')
-  if (token === null) throw new Error()
+    const token = req.header('Auth')
+    if (token === null) throw new ApiError('Token exist', { errorCode: 0x01 })
 
-  await authController.signIn(token!!)
-  next()
+    await authController.signIn(token!!)
+    next()
   } catch (error) {
     res.status(401).end()
   }

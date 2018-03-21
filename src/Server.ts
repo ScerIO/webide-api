@@ -1,10 +1,10 @@
+import { CLI } from 'cliffy'
+import * as cors from 'cors'
 import * as express from 'express'
 import * as expressGraphql from 'express-graphql'
-import { CLI } from 'cliffy'
-import { Logger } from 'utils'
-import schema from 'schema'
 import upload from 'routes/upload'
-import * as cors from 'cors'
+import schema from 'schema'
+import Logger from 'utils/logger'
 
 {
   const cli = new CLI()
@@ -15,9 +15,6 @@ import * as cors from 'cors'
   })
   cli.show()
 }
-
-// const { maskErrors } = require('graphql-errors')
-// maskErrors(schema)
 
 express()
   .disable('x-powered-by')

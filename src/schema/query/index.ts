@@ -1,15 +1,15 @@
-import {
-  ObjectType,
-  Field,
-  Arg,
-} from 'graphql-schema-decorator/lib'
-import User from 'api/user/schema'
-import IUser from 'site-api/user'
 import NewsQuery from 'api/news/query'
+import User from 'api/user/schema'
 import {
-  SCHEMA_USER,
+  Arg,
+  Field,
+  ObjectType,
+} from 'graphql-schema-decorator/lib'
+import {
   SCHEMA_NEWS,
+  SCHEMA_USER,
 } from 'schema/description'
+import IUser from 'site-api/user'
 
 @ObjectType()
 export default class RootQuery {

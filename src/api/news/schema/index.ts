@@ -1,19 +1,20 @@
-import {
-  ObjectType,
-  Field,
-} from 'graphql-schema-decorator'
-import INews from 'site-api/news'
 import Schema from 'api/base/schema'
 import {
-  NEWS_IMAGE_URL,
-  NEWS_TITLE,
-  NEWS_DESCRIPTION,
   NEWS_CONTENT,
+  NEWS_DESCRIPTION,
+  NEWS_IMAGE_URL,
+  NEWS_SCHEMA,
   NEWS_TIMESTAMP,
+  NEWS_TITLE,
 } from 'api/news/description'
+import {
+  Field,
+  ObjectType,
+} from 'graphql-schema-decorator'
+import INews from 'site-api/news'
 
 @ObjectType({
-  description: 'qqq',
+  description: NEWS_SCHEMA,
 })
 export default class NewsSchema extends Schema implements INews {
   @Field({

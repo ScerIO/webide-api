@@ -1,6 +1,10 @@
 export const NEWS_IMAGE_URL = 'Main image URL',
              NEWS_TITLE = 'Post title',
              NEWS_DESCRIPTION = 'Small description for introduction',
-             NEWS_CONTENT = 'BBCode content',
+             NEWS_CONTENT = 'HTML content',
              NEWS_TIMESTAMP = 'Post created date',
-             NEWS_ALL = 'Get all news'
+             NEWS_ALL = 'Get all news',
+             NEWS_SHARE_VK = 'Share news in group VK',
+             NEWS_ADD_INPUT = 'News add data',
+             NEWS_QUERY = 'News query methods',
+             NEWS_SCHEMA = 'News schema (GQL Model)'

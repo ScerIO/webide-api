@@ -1,9 +1,7 @@
 /**
  * Get random string
  * *
- * @@param {number} [chunks] - Chunks count
- * *
- * @return {string} - random string
+ * @param chunks - Chunks count
  */
 export default function randomString(chunks: number = 1): string {
   let temp: string = ''

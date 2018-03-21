@@ -3,9 +3,7 @@ import randomInteger from '../randomInteger'
 /**
  * Get number combination (Example: 642384)
  * *
- * @param {number} [maxLength] - Max length
- * *
- * @return {number} - Result
+ * @param maxLength - Max length
  */
 export default function numberCombination(maxLength: number = 10): string {
   let numbers = ''

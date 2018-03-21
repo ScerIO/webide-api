@@ -1,14 +1,17 @@
 import MongooseDB from 'database'
+import { PaginateOptions } from 'mongoose'
+import * as paginate from 'mongoose-paginate'
+import INews from 'site-api/news'
 import {
-  prop,
-  Typegoose,
   InstanceType,
   plugin,
+  prop,
+  Typegoose,
 } from 'typegoose'
-import INews from 'site-api/news'
-import * as paginate from 'mongoose-paginate'
-import { PaginateOptions } from 'mongoose'
 
+/**
+ * Pagination result
+ */
 export interface IPageinateResult<T> {
   docs: [InstanceType<T>]
   total?: number
@@ -26,47 +29,38 @@ export class NewsModel extends Typegoose implements INews {
   public static paginate: <T>(query: any, options: PaginateOptions) => Promise<IPageinateResult<T>>
   /**
    * Image
-   * *
-   * @type {string}
    */
   @prop({ required: true })
   public image: string
   /**
    * Title
-   * *
-   * @type {string}
    */
   @prop({ required: true })
   public title: string
   /**
-   * DEscription
-   * *
-   * @type {string}
+   * Description
    */
   @prop({ required: true })
   public description: string
   /**
    * Content
-   * *
-   * @type {string}
    */
   @prop({ required: true })
   public content: string
   /**
    * Create time
-   * *
-   * @type {string}
    */
-  @prop({ required: true })
+  @prop({ required: true, default: Date.now()})
   public timestamp: string
-
 }
 
 /**
  * User mongoose schema
- * *
- * @const {NewsModel}
  */
 export default new NewsModel().getModelForClass(NewsModel, {
-  existingMongoose: MongooseDB, schemaOptions: { versionKey: false, id: true },
+  existingMongoose: MongooseDB, schemaOptions: {
+    collection: 'news',
+    versionKey: false,
+    id: true,
+  },
 })

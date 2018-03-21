@@ -1,21 +1,21 @@
-import {
-  ObjectType,
-  Field,
-  Root,
-} from 'graphql-schema-decorator'
-import { Role } from 'api/user/role'
-import IUser from 'site-api/user'
 import Schema from 'api/base/schema'
 import {
   USER,
   USER_EMAIL,
-  USER_TOKEN,
-  USER_ROLE,
   USER_FIRST_NAME,
+  USER_IS_ADMIN,
   USER_LAST_NAME,
   USER_PICTURE,
-  USER_IS_ADMIN,
+  USER_ROLE,
+  USER_TOKEN,
 } from 'api/user/description'
+import { Role } from 'api/user/role'
+import {
+  Field,
+  ObjectType,
+  Root,
+} from 'graphql-schema-decorator'
+import IUser from 'site-api/user'
 
 @ObjectType({
   description: USER,

@@ -1,12 +1,12 @@
 import {
-  Schema,
-  Query,
   Mutation,
+  Query,
+  Schema,
   schemaFactory,
 } from 'graphql-schema-decorator/lib'
 
-import RootQuery from './query'
 import RootMutation from './mutation'
+import RootQuery from './query'
 
 @Schema()
 export class SchemaType {
@@ -15,7 +15,6 @@ export class SchemaType {
 
   @Mutation()
   public mutation: RootMutation
-
 }
 
 /**

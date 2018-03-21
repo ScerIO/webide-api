@@ -1,7 +1,9 @@
-import User, { UserModel } from 'api/user/model'
+import UserController from 'api/user/controller'
+import { UserModel } from 'api/user/model'
+import ApiError from 'error'
 import { OAuth2Client } from 'google-auth-library'
 import { LoginTicket } from 'google-auth-library/build/src/auth/loginticket'
-import ApiError from 'error'
+import { InstanceType } from 'typegoose'
 
 const {
   GOOGLE_ID = '',
@@ -14,23 +16,23 @@ const {
 export enum Errors {
   INCORRECT_TOKEN = 0x0,
   INCORRECT_GOOGLE_TOKEN = 0x1,
+  CREATE_USER_ERROR = 0x2,
+}
+
+/**
+ * Error messages
+ */
+export enum ErrorMessages {
+  INCORRECT_TOKEN = 'Incorrect token',
+  CREATE_USER_ERROR = 'Create user error',
 }
 
 /**
  * Auth controller
  */
 export default class AuthController {
-
-  /**
-   * Incorrect token
-   */
-  public readonly INCORRECT_TOKEN_MESSAGE = 'Incorrect token'
-
   /**
    * Google OAuth2 client
-   * *
-   * @type {OAuth2Client}
-   * @readonly
    */
   private readonly googleOauth2: OAuth2Client = new OAuth2Client(
     GOOGLE_ID,
@@ -39,14 +41,19 @@ export default class AuthController {
   )
 
   /**
+   * User controller
+   */
+  private readonly userController = new UserController()
+
+  /**
    * Google combined Sign In & Sign Up
    * *
-   * @param {string} [token] - Google token
-   * *
-   * @return {User|null}
+   * @param token - Google token
    */
-  public async googleSign(token: string): Promise<UserModel> {
-    let account: LoginTicket | null = null
+  public async googleSign(token: string): Promise<InstanceType<UserModel>> {
+    let account: LoginTicket | null = null,
+        user: InstanceType<UserModel> | null = null
+
     try {
       account = await this.googleOauth2.verifyIdToken({
         idToken: token,
@@ -55,29 +62,34 @@ export default class AuthController {
     } catch { /* Google token lyfecicle end or token broken */ }
 
     // Incorrect google token
-    if (!account) throw new ApiError(this.INCORRECT_TOKEN_MESSAGE, { errorCode: Errors.INCORRECT_GOOGLE_TOKEN })
+    if (!account) throw new ApiError(ErrorMessages.INCORRECT_TOKEN, { errorCode: Errors.INCORRECT_GOOGLE_TOKEN })
 
     const {
-      email,
-      given_name: firstName,
-      family_name: lastName,
-      picture,
+      email = '',
+      given_name: firstName = '',
+      family_name: lastName = '',
+      picture = '',
     } = account.getPayload()!!
 
-    // Return user by email or create new user
-    return await User.findOne({ email }) || await User.create({ email, firstName, lastName, picture })
+    try {
+      // Find user by email or create new user
+      user = await this.userController.findByEmail(email!!)
+          || await this.userController.add({ email, firstName, lastName, picture })
+    } catch (error) {
+      throw new ApiError(ErrorMessages.CREATE_USER_ERROR, { errorCode: Errors.CREATE_USER_ERROR })
+    }
+
+    return user!!
   }
 
   /**
    * Sign in by api token
    * *
-   * @param {string} [token] - Api token
-   * *
-   * @return {User|null}
+   * @param token - Api token
    */
-  public signIn = async (token: string): Promise<UserModel> => {
-    const user = await User.findOne({ token })
-    if (!user) throw new ApiError(this.INCORRECT_TOKEN_MESSAGE, { errorCode: Errors.INCORRECT_TOKEN })
+  public async signIn(token: string): Promise<InstanceType<UserModel>> {
+    const user = await this.userController.findByToken(token)
+    if (!user) throw new ApiError(ErrorMessages.INCORRECT_TOKEN, { errorCode: Errors.INCORRECT_TOKEN })
     return user
   }
 }

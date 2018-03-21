@@ -1,14 +1,14 @@
-import { register } from 'tsconfig-paths'
 import * as dotenv from 'dotenv'
-const { compilerOptions } = require('../tsconfig.json')
+import { register } from 'tsconfig-paths'
+import * as tsconfig from '../tsconfig.json'
 
 // Load env from .env
 dotenv.config()
 
 // Resolve typescript module aliases
 register({
-    baseUrl: compilerOptions.baseUrl,
+    baseUrl: tsconfig.compilerOptions.baseUrl,
     paths: {
-      '*': [ `${compilerOptions.outDir}*` ],
+      '*': [ `${tsconfig.compilerOptions.outDir}*` ],
     },
 })

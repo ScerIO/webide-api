@@ -3,8 +3,8 @@
   "version": "1.1.0",
   "main": "build/Server.js",
   "scripts": {
-    "build": "tsc -p . & PAUSE",
-    "build:watch": "tsc -w -p . & PAUSE",
+    "build": "tsc -p .",
+    "build:watch": "tsc -w -p .",
     "start": "node -r ./build/Bootstrap.js build/Server.js"
   },
   "dependencies": {
@@ -24,13 +24,13 @@
     "express-graphql": "^0.6.12",
     "googleapis": "^27.0.0",
     "graphql": "0.11.7",
-    "graphql-errors": "^2.1.0",
     "graphql-schema-decorator": "^1.0.0-alpha9",
     "mongoose-paginate": "^5.0.3",
     "multer": "^1.3.0",
     "tsconfig-paths": "^3.1.3",
     "typegoose": "^3.5.2",
     "typescript": "^2.7.2",
+    "vk-io": "^4.0.0-beta.2",
     "winston": "^2.4.1"
   },
   "devDependencies": {
