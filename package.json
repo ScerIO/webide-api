@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc -p .",
     "build:watch": "tsc -w -p .",
-    "start": "node -r ./build/Bootstrap.js build/Server.js"
+    "start": "node -r ./build/bootstrap.js build/Server.js"
   },
   "dependencies": {
     "@types/cors": "^2.8.3",

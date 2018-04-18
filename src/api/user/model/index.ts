@@ -1,4 +1,4 @@
-import { Role } from 'api/user/Role'
+import { Role } from 'api/user/role'
 import MongooseDB from 'database'
 import IUser from 'site-api/user'
 import {

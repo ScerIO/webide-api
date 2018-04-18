@@ -18,8 +18,8 @@ import Logger from 'utils/logger'
 
 express()
   .disable('x-powered-by')
-  .use('/api', cors(), expressGraphql({ schema }))
-  .use('/debug', expressGraphql({
+  .use('/graphql', cors(), expressGraphql({ schema }))
+  .use('/graphiql', expressGraphql({
     schema,
     graphiql: true,
   }))
