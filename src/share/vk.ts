@@ -14,7 +14,7 @@ const {
  * @param groupId
  */
 export default async function vkPost(news: INews, groupId: number): Promise<{ post_id: number }> {
-  const postTemplate = `${news.title}\n${news.description}`
+  const postTemplate = `${news.title}\n\n${news.description}`
 
   const vk = new VK({
       app: APP_ID,
