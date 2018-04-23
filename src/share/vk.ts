@@ -14,28 +14,22 @@ const {
  * @param groupId
  */
 export default async function vkPost(news: INews, groupId: number): Promise<{ post_id: number }> {
-      const postTemplate = `
-      ${news.title}
+  const postTemplate = `${news.title}\n${news.description}`
 
-      ${news.description}
+  const vk = new VK({
+      app: APP_ID,
+      key: APP_SECRET,
+      token: TOKEN,
+  })
 
-      ${new Date(news.timestamp).toLocaleString()}
-      `
+  const upload = await vk.upload.wallPhoto({
+    source: news.image,
+  })
 
-      const vk = new VK({
-          app: APP_ID,
-          key: APP_SECRET,
-          token: TOKEN,
-      })
-
-      const upload = await vk.upload.wallPhoto({
-        source: news.image,
-      })
-
-      return await (vk.api as any).wall.post({
-        owner_id: groupId,
-        from_group: true,
-        message: postTemplate,
-        attachments: `photo${upload.getOwnerId()}_${upload.getId()}`,
-      })
+  return await (vk.api as any).wall.post({
+    owner_id: groupId,
+    from_group: true,
+    message: postTemplate,
+    attachments: `photo${upload.getOwnerId()}_${upload.getId()}`,
+  })
 }

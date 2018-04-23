@@ -31,6 +31,6 @@ export default class NewsQuery {
   ): Promise<[NewsSchema[], number]> {
     const result = await News.paginate<NewsModel>({}, { offset, limit })
 
-    return [result.docs, result.docs.length]
+    return [result.docs.reverse(), result.docs.length]
   }
 }
