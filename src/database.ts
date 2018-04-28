@@ -11,12 +11,14 @@ const dataBase = {
     const {
       DATABASE_HOST: HOST,
       DATABASE_PORT: PORT,
+      DATABASE_LOGIN: LOGIN,
+      DATABASE_PASSWORD: PASSWORD,
       DATABASE_NAME: NAME,
     } = process.env
     {
       (mongoose as any).Promise = global.Promise
     }
-    mongoose.connect(`mongodb://${HOST}:${PORT}/${NAME}`, { useMongoClient: true, promiseLibrary: global.Promise })
+    mongoose.connect(`mongodb://${LOGIN}:${PASSWORD}@${HOST}:${PORT}/${NAME}?authSource=admin`, { useMongoClient: true, promiseLibrary: global.Promise })
       .catch((error) => Log.error('Connect to db: ', error))
     this._instance!! = mongoose
     return this._instance

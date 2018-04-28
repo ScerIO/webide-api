@@ -17,6 +17,8 @@ GOOGLE_SECRET= GOOGLE-SECRET
 # Database
 DATABASE_HOST='ide-api-mongodb' # Docker compose db address
 DATABASE_PORT='27017'  # Docker compose db port
+DATABASE_LOGIN= LOGIN
+DATABASE_PASSWORD= PASSWORD
 DATABASE_NAME='ide'
 
 # Logger
