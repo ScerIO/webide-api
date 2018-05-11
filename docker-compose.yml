@@ -6,26 +6,18 @@ services:
     container_name: ide-api-node
     links:
       - ide-api-mongodb
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
     volumes:
       - './:/home/node/app'
     working_dir: /home/node/app
     command: npm start
     depends_on:
-      - ide-api-mongodb
-  ide-api-nginx:
-    image: nginx
-    container_name: ide-api-nginx
-    links:
-      - ide-api-node
-    ports:
-      - '80:80'
-    volumes:
-      - './nginx.conf:/etc/nginx/conf.d/ide-api.template'
-    command: /bin/bash -c "envsubst < /etc/nginx/conf.d/ide-api.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
-    depends_on:
-      - ide-api-node
+        - ide-api-mongodb
   ide-api-mongodb:
     image: mongo
     container_name: ide-api-mongodb
     ports:
       - '27017:27017'
+    environment:
+      - MONGO_DATA_DIR=/data/db

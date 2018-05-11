@@ -9,7 +9,7 @@ import {
   SCHEMA_NEWS,
   SCHEMA_USER,
 } from 'schema/description'
-import IUser from 'site-api/user'
+import IUser from 'api/user/interface'
 
 @ObjectType()
 export default class RootQuery {

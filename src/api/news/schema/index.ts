@@ -11,7 +11,7 @@ import {
   Field,
   ObjectType,
 } from 'graphql-schema-decorator'
-import INews from 'site-api/news'
+import INews from 'api/news/interface'
 
 @ObjectType({
   description: NEWS_SCHEMA,

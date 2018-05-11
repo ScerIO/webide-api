@@ -7,7 +7,7 @@ services:
     links:
       - ide-api-mongodb
     ports:
-      - '8084:8084'
+      - ${SERVER_PORT}:${SERVER_PORT}
     volumes:
       - './:/home/node/app'
     working_dir: /home/node/app

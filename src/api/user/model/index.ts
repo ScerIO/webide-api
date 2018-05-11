@@ -1,6 +1,6 @@
 import { Role } from 'api/user/role'
 import MongooseDB from 'database'
-import IUser from 'site-api/user'
+import IUser from 'api/user/interface'
 import {
   instanceMethod,
   prop,

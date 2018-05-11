@@ -1,4 +1,4 @@
-import INews from 'site-api/news'
+import INews from 'api/news/interface'
 import VK from 'vk-io'
 
 const {

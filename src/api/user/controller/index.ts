@@ -1,6 +1,6 @@
 import User, { UserModel } from 'api/user/model'
 import ApiError from 'error'
-import IUser from 'site-api/user'
+import IUser from 'api/user/interface'
 import { InstanceType } from 'typegoose'
 import Logger from 'utils/logger'
 

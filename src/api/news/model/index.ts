@@ -1,7 +1,7 @@
 import MongooseDB from 'database'
 import { PaginateOptions } from 'mongoose'
 import * as paginate from 'mongoose-paginate'
-import INews from 'site-api/news'
+import INews from 'api/news/interface'
 import {
   InstanceType,
   plugin,

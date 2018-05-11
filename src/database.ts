@@ -1,5 +1,6 @@
 import * as mongoose from 'mongoose'
 import Log from 'utils/logger'
+import enviroment from 'utils/enviroment';
 
 /**
  * Initialized instance
@@ -18,7 +19,10 @@ const dataBase = {
     {
       (mongoose as any).Promise = global.Promise
     }
-    mongoose.connect(`mongodb://${LOGIN}:${PASSWORD}@${HOST}:${PORT}/${NAME}?authSource=admin`, { useMongoClient: true, promiseLibrary: global.Promise })
+    mongoose.connect(enviroment({
+      production: `mongodb://${LOGIN}:${PASSWORD}@${HOST}:${PORT}/${NAME}?authSource=admin`,
+      development: `mongodb://${HOST}:${PORT}/${NAME}`
+    }), { useMongoClient: true, promiseLibrary: global.Promise })
       .catch((error) => Log.error('Connect to db: ', error))
     this._instance!! = mongoose
     return this._instance

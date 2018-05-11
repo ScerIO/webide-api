@@ -11,7 +11,7 @@ import {
   Field,
   ObjectType,
 } from 'graphql-schema-decorator'
-import IUser from 'site-api/user'
+import IUser from 'api/user/interface'
 
 type UserPromise = Promise<IUser | null>
 
