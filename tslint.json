@@ -8,6 +8,7 @@
     "object-literal-sort-keys": false,
     "curly": [true, "ignore-same-line"],
     "semicolon": [true, "never"],
-    "no-var-requires": false
+    "no-var-requires": false,
+    "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"]
   }
 }

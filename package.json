@@ -5,6 +5,7 @@
   "scripts": {
     "build": "tsc -p .",
     "build:watch": "tsc -w -p .",
+    "lint": "tslint --project .",
     "start": "node -r ./build/bootstrap.js build/Server.js"
   },
   "dependencies": {

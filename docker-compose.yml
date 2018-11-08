@@ -11,7 +11,7 @@ services:
     volumes:
       - './:/home/node/app'
     working_dir: /home/node/app
-    command: npm start
+    command: node -r ./build/bootstrap.js build/Server.js
     depends_on:
         - ide-api-mongodb
   ide-api-mongodb:
